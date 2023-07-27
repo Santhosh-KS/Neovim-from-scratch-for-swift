@@ -39,6 +39,11 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
+keymap("n", "<leader><leader>b", "<cmd> vnew TempBuffer | echo nvim_get_current_buf()<CR> ", opts)
+keymap("n", "<leader><leader>x", "<cmd> Swiftrun<CR>", opts)
+keymap("n", "<leader><leader>f", "<cmd>swift-format -i %<CR>", opts)
+
+
 -- Insert --
 -- Press jk fast to exit insert mode 
 keymap("i", "jk", "<ESC>", opts)
@@ -61,6 +66,22 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+-- Debugging
+-- nnoremap <silent> <F10> <Cmd>lua require'dap'.step_over()<CR>
+-- nnoremap <silent> <F11> <Cmd>lua require'dap'.step_into()<CR>
+-- nnoremap <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
+-- nnoremap <silent> 
+-- nnoremap <silent> <Leader>B <Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+-- nnoremap <silent> <Leader>lp <Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+-- nnoremap <silent> <Leader>dr <Cmd>lua require'dap'.repl.open()<CR>
+-- nnoremap <silent> <Leader>dl <Cmd>lua require'dap'.run_last()<CR>
+-- keymap("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>",opts)
+-- keymap("n", "<Leader>b", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>",opts)
+-- keymap( "n", "<Leader>B", "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",opts)
+-- keymap( "n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>",opts)
+-- keymap( "n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>",opts)
+-- keymap( "n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>",opts)
+--
 -- Terminal --
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)

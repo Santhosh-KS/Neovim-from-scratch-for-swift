@@ -1,24 +1,26 @@
 local servers = {
+  -- "lua_lsp",
 	"sumneko_lua",
 	-- "cssls",
 	-- "html",
 	-- "tsserver",
-	"pyright",
+	-- "pyright",
 	-- "bashls",
-	"jsonls",
+	-- "jsonls",
 	-- "yamlls",
+  "sourcekit",
 }
 
 local settings = {
 	ui = {
 		border = "none",
 		icons = {
-			package_installed = "◍",
-			package_pending = "◍",
-			package_uninstalled = "◍",
+			package_installed = "󱑣",
+			package_pending = "󰦗",
+			package_uninstalled = "󰵗",
 		},
 	},
-	log_level = vim.log.levels.INFO,
+	log_level = vim.log.levels.DEBUG,
 	max_concurrent_installers = 4,
 }
 
@@ -33,16 +35,13 @@ if not lspconfig_status_ok then
 	return
 end
 
-local opts = {}
-
-for _, server in pairs(servers) do
-	opts = {
+local	opts = {
 		on_attach = require("user.lsp.handlers").on_attach,
 		capabilities = require("user.lsp.handlers").capabilities,
-	}
+}
 
+for _, server in pairs(servers) do
 	server = vim.split(server, "@")[1]
-
 	local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server)
 	if require_ok then
 		opts = vim.tbl_deep_extend("force", conf_opts, opts)
@@ -50,3 +49,4 @@ for _, server in pairs(servers) do
 
 	lspconfig[server].setup(opts)
 end
+

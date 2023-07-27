@@ -11,9 +11,13 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
+    formatting.swift_format.with({extra_args = { "format", "--in-place", "--recursive", "--parallel", "--color-diagnostics"}}),
+    -- formatting.swiftlint.with({extra_args ="--recursive", "--parallel" }),
+    formatting.stylua,
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.black.with({ extra_args = { "--fast" } }),
-		formatting.stylua,
     -- diagnostics.flake8
+    diagnostics.swiftlint,
 	},
+  autostart=true
 })
