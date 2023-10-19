@@ -1,14 +1,15 @@
 local servers = {
   -- "lua_lsp",
 	"sumneko_lua",
-	-- "cssls",
-	-- "html",
-	-- "tsserver",
+	"cssls",
+	"html",
+	"tsserver",
 	-- "pyright",
-	-- "bashls",
-	-- "jsonls",
+	"bashls",
+	"jsonls",
 	-- "yamlls",
-  "sourcekit",
+  -- "sourcekit",
+  "marksman"
 }
 
 local settings = {

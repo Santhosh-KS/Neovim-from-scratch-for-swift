@@ -23,4 +23,5 @@ require "user.alpha"
 require "user.whichkey"
 require "user.autocommands"
 require "user.sant_autorun"
+require "user.luasnips"
 
