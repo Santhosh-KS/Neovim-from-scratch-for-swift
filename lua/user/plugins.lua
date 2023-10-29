@@ -116,6 +116,8 @@ return packer.startup(function(use)
   use { "artempyanykh/marksman" }
   use { "mattn/emmet-vim" }
   use { "mattn/webapi-vim" }
+  use { "nvim-treesitter/playground"}
+
   if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

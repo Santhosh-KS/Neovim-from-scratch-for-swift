@@ -64,17 +64,17 @@ local opts = { noremap = true, silet = true}
 -- end
 -- )
 -- shortcut to source my luasnips file again, which will reload my sinippets
--- vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/user/mySnips.lua<CR>")
-vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/user/luasnippets/mySnips.lua<CR>")
+vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/snippets/playground.lua<CR>")
+-- vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/user/luasnippets/mySnips.lua<CR>")
 
-vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
-vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
-vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
+-- vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
+-- vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
+-- vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
+--
+-- vim.keymap.set({"i", "s"}, "<C-E>", function()
+-- 	if ls.choice_active() then
+-- 		ls.change_choice(1)
+-- 	end
+-- end, {silent = true})
 
-vim.keymap.set({"i", "s"}, "<C-E>", function()
-	if ls.choice_active() then
-		ls.change_choice(1)
-	end
-end, {silent = true})
-
-require("luasnip.loaders.from_lua").lazy_load({paths = "~/.config/nvim/luasnippets"})
+require("luasnip.loaders.from_lua").lazy_load({paths = "~/.config/nvim/snippets"})

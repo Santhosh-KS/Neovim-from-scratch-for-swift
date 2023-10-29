@@ -24,4 +24,6 @@ require "user.whichkey"
 require "user.autocommands"
 require "user.sant_autorun"
 require "user.luasnips"
+require "user.generic_autorun"
+require "user.ts_autorun"
 
